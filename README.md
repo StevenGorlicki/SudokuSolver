@@ -1,31 +1,45 @@
-**Run the Sudoku Solver**
-File format
+**Sudoku Solver**  
 
-Each board file begins with two integers p q (sub‑block rows/cols). The overall size is N = p × q.
-Example (standard 9×9 Sudoku): p=3, q=3 → N=9
-Grid uses base‑36 symbols: 0 = empty, 1–9, then A=10, B=11, … as needed.
-ex
-3 3
-0 0 0 4 0 0 0 0 0
-...
+**File Format**  
+-------------
+Each board file begins with two integers p q (sub-block rows/cols).  
+The overall size is N = p × q.  
 
-**To Generate Test Files**
-in terminal you can do 
-# python3 board_generator.py BASE_NAME COUNT p q m
+Example (standard 9×9 Sudoku):  
+p = 3, q = 3 → N = 9  
 
-# 5 boards, 9x9 (3x3 blocks), 30 givens each:
-python3 board_generator.py Boards/board 5 3 3 30
+Grid uses base-36 symbols:  
+0 = empty, 1–9, A=10, B=11, ... as needed  
 
-# 3 boards, 12x12 (3x4 blocks), 35 givens each:
-python3 board_generator.py Boards/board 3 3 4 35
 
-**Solve Boards**
-# to run our build in demo type:
+**Generate Test Files**  
+-------------------
+Use the board generator to create Sudoku boards.  
+Syntax:
+```
+python3 board_generator.py BASE_NAME COUNT p q m
+#Example: 5 boards, 9x9 (3x3 blocks), 30 givens each
+python3 board_generator.py board_0.txt 5 3 3 30
+```
+**Solve Boards  **
+------------
+Run the solver with optional heuristics and a board file.
+```
+#Default Demo Build
 python3 src/main.py
-
-for a single example board:
-python3 src/main.py MAD LCV NOR Difficulty_level/file
-# specifically
+#Run optimally on a specific board
 python3 src/main.py MAD LCV NOR generator_expert/generator_0.txt
+```
+**Heuristic Options  **
+-----------------
+- MRV   → Minimum Remaining Value  
+- MAD   → MRV with degree tie-breaker  
+- LCV   → Least Constraining Value  
+- FC    → Forward Checking  
+- NOR   → Norvig’s propagation
+- 
 
-This can solve 25x25 boards in <1 minute and 36x36 when modifying the input to allow for upper and lowercase letters (1-Z single character only goes to 35 unique inputs) give it a try!
+**Performance Notes  **
+-----------------
+- Can solve 25x25 boards in under a minute.  
+- 36x36 boards are possible if you extend the symbol set to include upper and lowercase letters (default base-36 only supports 35 unique symbols).  
