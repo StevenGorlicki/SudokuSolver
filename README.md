@@ -18,16 +18,21 @@ Use the board generator to create Sudoku boards.
 Syntax:
 ```
 python3 board_generator.py BASE_NAME COUNT p q m
-#Example: 5 boards, 9x9 (3x3 blocks), 30 givens each
+```
+Example: 5 boards, 9x9 (3x3 blocks), 30 givens each
+```
 python3 board_generator.py board_0.txt 5 3 3 30
 ```
 **Solve Boards  **
 ------------
 Run the solver with optional heuristics and a board file.
+
+Default Demo Build
 ```
-#Default Demo Build
 python3 src/main.py
-#Run optimally on a specific board
+```
+Run optimally on a specific board
+```
 python3 src/main.py MAD LCV NOR generator_expert/generator_0.txt
 ```
 **Heuristic Options  **
