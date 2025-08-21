@@ -1,6 +1,6 @@
 **Sudoku Solver**  
 
-**File Format**  
+File Format 
 -------------
 Each board file begins with two integers p q (sub-block rows/cols).  
 The overall size is N = p × q.  
@@ -12,7 +12,7 @@ Grid uses base-36 symbols:
 0 = empty, 1–9, A=10, B=11, ... as needed  
 
 
-**Generate Test Files**  
+Generate Test Files
 -------------------
 Use the board generator to create Sudoku boards.  
 Syntax:
@@ -23,7 +23,7 @@ Example: 5 boards, 9x9 (3x3 blocks), 30 givens each
 ```
 python3 board_generator.py board_0.txt 5 3 3 30
 ```
-**Solve Boards  **
+Solve Boards
 ------------
 Run the solver with optional heuristics and a board file.
 
@@ -35,7 +35,7 @@ Run optimally on a specific board
 ```
 python3 src/main.py MAD LCV NOR generator_expert/generator_0.txt
 ```
-**Heuristic Options  **
+Heuristic Options
 -----------------
 - MRV   → Minimum Remaining Value  
 - MAD   → MRV with degree tie-breaker  
