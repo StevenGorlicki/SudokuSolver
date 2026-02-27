@@ -1,4 +1,5 @@
 **Sudoku Solver**  
+-- I made this project using search hueristics, if you ever want to solve a 25x25 board for whatever reason, download this project! --
 
 File Format 
 -------------
